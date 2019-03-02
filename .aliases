@@ -1,0 +1,48 @@
+####################################
+#            zsh Aliases           #
+####################################
+
+ALIASDIR="$HOME/.aliases"
+ALIASFILENAME="zsh.aliases"
+al_file="$ALIASDIR/$ALIASFILENAME"
+
+# misc
+alias ll="ls -lhaFG"
+alias pg='ping google.com'
+alias al="less $al_file"
+alias ea="vim $al_file"
+alias so="source $al_file"
+alias ip='iperf3 -c 192.168.1.2'
+alias rc="vim $HOME/.zshrc"
+alias grep='grep -i'
+alias vimrc="vim ~/.vimrc"
+
+# xcode
+alias x9='sudo xcode-select --switch /Applications/Xcode.app'
+alias xp='xcode-select -p'
+
+# git
+alias gba='git branch -a -vv'
+alias chkm='git checkout master'
+alias gc="git commit"
+alias gl="git log"
+alias gla="git log --oneline --decorate --all --graph --date-order"
+alias gs="git status"
+alias gsv='git status -v | less'
+alias chk="git checkout"
+
+# ssh
+alias mp='ssh dolemite@192.168.1.2'
+alias devbot='ssh -i ~/.ssh/devbot_key.pem jbaxter@devbot'
+alias auric='ssh jb@72.52.83.148 -p 32151'
+alias auric3='ssh jb@23.241.243.194'
+
+# mysql
+# alias mysql=/usr/local/mysql/bin/mysql
+# alias mysqladmin=/usr/local/mysql/bin/mysqladmin
+
+# gobot
+alias gobot="cd ~/Programming/Crypto/gobot" 
+
+echo Finished reading $HOME/zsh.aliases
+alias stat="stat -x"

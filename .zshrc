@@ -22,9 +22,7 @@ bindkey -M vicmd '^r' history-incremental-search-backward
 export LESS='-g -i -M -R' 
 
 # Source Aliases
-source ~/.aliases/zsh.aliases
-# source ~/.aliases/aws-alias.sh
-# source ~/.aws/aws-info-variables
+source ~/.aliases
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

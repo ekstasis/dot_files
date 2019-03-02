@@ -1,12 +1,20 @@
-### git clone dotfiles
+#!/bin/bash
 
-### sym link dotfiles
+src_name="com.googlecode.iterm2.plist"
+src_dir="~/dot_files"
+cd $src_dir
+src="${src_dir}/${src_name}"
 
-# .vimrc
+tar_dir="~/Library/Preferences/"
+target=${tar_dir}${src_name}
 
+if [[ -e $target ]]; then
+    mv $target ${target}.bak
+    echo $target exists -- created ${target}.bak
+fi
 
-### iTERM ###
-# com.plist
+ln -s $src $target && echo --> \"ln -s $src $target\"
+
 
 ### Brew ###
 # git
