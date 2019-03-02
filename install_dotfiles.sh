@@ -1,19 +1,21 @@
 #!/bin/bash
 
+install () {
+# $1 is source, $2 is target
+	if [[ -e $2 ]]; then
+	    mv $2 ${2}.bak && echo "> $2 exists" && echo "> created ${2}.bak"
+	fi
+	
+	ln -s $1 $2 && echo "> executed: \"ln -s $1 $2\""
+}
+
+src_dir=~/dot_files
 src_name="com.googlecode.iterm2.plist"
-src_dir="~/dot_files"
-cd $src_dir
 src="${src_dir}/${src_name}"
+tar_dir=~/Library/Preferences
+target=${tar_dir}/${src_name}
 
-tar_dir="~/Library/Preferences/"
-target=${tar_dir}${src_name}
-
-if [[ -e $target ]]; then
-    mv $target ${target}.bak
-    echo $target exists -- created ${target}.bak
-fi
-
-ln -s $src $target && echo --> \"ln -s $src $target\"
+install $src $target
 
 
 ### Brew ###
