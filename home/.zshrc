@@ -36,14 +36,14 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 path=(~/bin $path)
 
 # Functions
-fn_dir=~/.zsh/functions
-[[ -d $fn_dir ]] || print ERROR:  $fn_dir does not exist.  Custom functions won\'t be loaded ...
-[[ $fpath = *$fn_dir* ]] || fpath=($fn_dir $fpath); print Added $fn_dir to \$fpath
-autoload ${fpath[1]}/*(:t)
+#
+# fn_dir=~/.zsh/functions
+# [[ -d $fn_dir ]] || print ERROR:  $fn_dir does not exist.  Custom functions won\'t be loaded ...
+# [[ $fpath = *$fn_dir* ]] || fpath=($fn_dir $fpath); print Added $fn_dir to \$fpath
+# autoload ${fpath[1]}/*(:t)
 
 ## Python & Conda ##
 #==========#
-. /Users/babymice/Programming/miniconda3/etc/profile.d/conda.sh
-conda activate base
+# . /Users/babymice/Programming/miniconda3/etc/profile.d/conda.sh
+# conda activate base
 
-# source /Users/babymice/.gobotrc

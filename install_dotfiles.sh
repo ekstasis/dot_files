@@ -4,12 +4,12 @@ test=''
 
 shopt -s dotglob
 
-install () {
+install_dot_file () {
 	# $1 is source, $2 is target $3 is "test" (optional)
 	if [[ $3 == 'test' ]]; then
 		echo '** TEST **'
 	fi
-	# Backup iterm plist if it exists
+	# Backup destination if ti exists
 	if [[ -e $2 ]]; then
 	    mv_command="mv $2 ${2}.bak"
 	    mv_confirm="> $2 exists"
@@ -40,7 +40,7 @@ src="${src_dir}/${src_name}"
 tar_dir=$HOME/Library/Preferences
 target=${tar_dir}/${src_name}
 
-install $src $target $test
+install_dot_file $src $target $test
 
 # home
 #
@@ -54,7 +54,7 @@ popd > /dev/null
 for file in ${home_files[*]}; do
 	src=${home_src_dir}/${file}
 	target=${HOME}/$file
-	install $src $target $test
+	install_dot_file $src $target $test
 done
 
 
