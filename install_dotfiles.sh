@@ -1,21 +1,61 @@
 #!/bin/bash
 
+test=''
+
+shopt -s dotglob
+
 install () {
-# $1 is source, $2 is target
-	if [[ -e $2 ]]; then
-	    mv $2 ${2}.bak && echo "> $2 exists" && echo "> created ${2}.bak"
+	# $1 is source, $2 is target $3 is "test" (optional)
+	if [[ $3 == 'test' ]]; then
+		echo '** TEST **'
 	fi
-	
-	ln -s $1 $2 && echo "> executed: \"ln -s $1 $2\""
+	# Backup iterm plist if it exists
+	if [[ -e $2 ]]; then
+	    mv_command="mv $2 ${2}.bak"
+	    mv_confirm="> $2 exists"
+       	    mv_confirm2="> created ${2}.bak"
+	    if [[ $3 == 'test' ]]; then
+		echo TESTING
+		echo $mv_command && echo $mv_confirm && echo $mv_confirm2
+	    else
+		$mv_command && echo $mv_confirm && echo $mv_confirm2
+	    fi
+	fi
+
+	ln_command="ln -s $1 $2"
+	ln_confirm="> executed: \"ln -s $1 $2\""
+
+	if [[ $3 == 'test' ]]; then
+	    echo $ln_command && echo $ln_confirm
+	else
+	    $ln_command && echo $ln_confirm
+	fi
 }
 
-src_dir=~/dot_files
+# iTerm
+#
+src_dir=$HOME/dot_files
 src_name="com.googlecode.iterm2.plist"
 src="${src_dir}/${src_name}"
-tar_dir=~/Library/Preferences
+tar_dir=$HOME/Library/Preferences
 target=${tar_dir}/${src_name}
 
-install $src $target
+install $src $target $test
+
+# home
+#
+home_src_dir=$HOME/dot_files/home
+home_target_dir=$HOME
+
+pushd $home_src_dir > /dev/null
+home_files=(*)
+popd > /dev/null
+
+for file in ${home_files[*]}; do
+	src=${home_src_dir}/${file}
+	target=${HOME}/$file
+	install $src $target $test
+done
 
 
 ### Brew ###
