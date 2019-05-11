@@ -3,15 +3,10 @@
 #
 
 # ZSH Options
-setopt auto_cd
+setopt auto_cd dotglob
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Prompt (Prezto)
-autoload prompt && prompt steeef
+autoload -U promptinit && promptinit
+prompt adam2
 
 # Editor
 bindkey -v

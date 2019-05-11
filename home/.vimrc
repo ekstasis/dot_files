@@ -18,24 +18,23 @@ endif
 
 " VimWiki
 " 
-call plug#begin('~/.vim/plugged')
-" Declare the list of plugins.
-Plug 'vimwiki/vimwiki'
+" call plug#begin('~/.vim/plugged')
+" Plug 'vimwiki/vimwiki'
 " List ends here. Plugins become visible to Vim after this call.
-call plug#end()
+" call plug#end()
 
-let g:vimwiki_list = [{'path': '~/vimwiki/main', 'ext': '.md', 'syntax': 'markdown'},
+" let g:vimwiki_list = [{'path': '~/vimwiki/main', 'ext': '.md', 'syntax': 'markdown'},
             \ {'path': '~/vimwiki/bot', 'ext': '.md', 'syntax': 'markdown'},
             \ {'path': '~/vimwiki/ml', 'ext': '.md', 'syntax': 'markdown'}]
 
-:nmap <Leader>wu <Plug>VimwikiDeleteLink
+" :nmap <Leader>wu <Plug>VimwikiDeleteLink
 
 " Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm.app"
-    let &t_SR = "\<esc>]50;CursorShape=2\x7" " Underline in replace mode
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
+" if $TERM_PROGRAM =~ "iTerm.app"
+"     let &t_SR = "\<esc>]50;CursorShape=2\x7" " Underline in replace mode
+"     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+"     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+" endif
 
 set history=50		" keep 50 lines of command line history
 set ruler		    " show the cursor position all the time
