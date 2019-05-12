@@ -1,11 +1,13 @@
 #!/bin/bash
 
-test=''
+test=$1
 
 shopt -s dotglob
 
 install_dot_file () {
+	# run for each dot_file in loop below
 	# $1 is source, $2 is target $3 is "test" (optional)
+
 	if [[ $3 == 'test' ]]; then
 		echo '** TEST **'
 	fi
@@ -34,15 +36,15 @@ install_dot_file () {
 
 # iTerm
 #
-src_dir=$HOME/dot_files
-src_name="com.googlecode.iterm2.plist"
-src="${src_dir}/${src_name}"
-tar_dir=$HOME/Library/Preferences
-target=${tar_dir}/${src_name}
+# src_dir=$HOME/dot_files
+# src_name="com.googlecode.iterm2.plist"
+# iterm_src="${src_dir}/${src_name}"
+# tar_dir=$HOME/Library/Preferences
+# target=${tar_dir}/${src_name}
+#
+# install_dot_file $iterm_src $target $test
 
-install_dot_file $src $target $test
-
-# home
+# Home -- Main Program
 #
 home_src_dir=$HOME/dot_files/home
 home_target_dir=$HOME
